@@ -1,15 +1,15 @@
 <?php
 /*
 Plugin Name: Logout clear cookies
-Plugin URI: https://lyncd.com/
+Plugin URI:
 Description: Clears all cookies on logout. Because leaving a trail of cookies is bad.
 Version: 0.1
-Author: Joel Hardi
+Author: Joel Hardi, raininja
 Author URI: https://lyncd.com/
 License: GPL2
 */
 
-/*  Copyright 2015-2017 Joel Hardi
+/*  
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 2, as
@@ -31,7 +31,7 @@ add_action('wp_logout', function () {
     setcookie($k, FALSE, time()-YEAR_IN_SECONDS, '', COOKIE_DOMAIN);
   }, array_keys($_COOKIE));
   // Redirect to WP_HOME since by default WordPress redirects to its login URL,
-  // which actually sets a new cookie
+  // which actually sets a new cookie;  changed as indicated below to correct redirection error
   //header('Location:', WP_HOME);
   wp_redirect( home_url() );
   exit;
